@@ -1,10 +1,7 @@
 package ru.netology.data;
-
 import com.github.javafaker.Faker;
-
 import java.time.LocalDateTime;
 import java.util.Locale;
-
 public class DataGenerator {
     private DataGenerator() {
     }

@@ -82,10 +82,10 @@ public class CardDeliveryFormTest {
         element.$("[data-test-id=name] input").setValue(userInfo.getUserName());
         element.$("[data-test-id=phone] input").setValue(userInfo.getUserPhone());
         element.$("[data-test-id=agreement]").click();
-        element.$$(".button").find(exactText("Запланировать")).click();
+        element.$$(".button").find(exactText("Забронировать")).click();
 
         $(withText("Успешно!")).waitUntil(visible, 15000);
-        $(byText("Встреча успешно запланирована на")).shouldBe(visible);
+        $(byText("Встреча успешно забронирована на")).shouldBe(visible);
         $(byText(dateFormat.format(userInfo.getOrderDate()))).shouldBe(visible);
 
         element.$("[data-test-id=date] input").click();
@@ -94,13 +94,13 @@ public class CardDeliveryFormTest {
                 getMonthArrowClickCount(reorderDate, userInfo.getOrderDate()));
 
         calendar.$(byText(String.valueOf(reorderDate.getDayOfMonth()))).click();
-        element.$$("button").find(exactText("Запланировать")).click();
+        element.$$("button").find(exactText("Забронировать")).click();
 
-        $(withText("Необходимо подтверждение")).waitUntil(visible, 15000);
-        $(byText("Перепланировать")).shouldBe(visible);
-        $$(".notification .button").find(exactText("Перепланировать")).click();
-        $(withText("Успешно!")).waitUntil(visible, 15000);
-        $(byText("Встреча успешно запланирована на")).shouldBe(visible);
-        $(byText(dateFormat.format(reorderDate))).shouldBe(visible);
+//        $(withText("Необходимо подтверждение")).waitUntil(visible, 15000);
+//        $(byText("Перебронировать")).shouldBe(visible);
+//        $$(".notification .button").find(exactText("Перебронировать")).click();
+//        $(withText("Успешно!")).waitUntil(visible, 15000);
+//        $(byText("Встреча успешно забронирована на")).shouldBe(visible);
+//        $(byText(dateFormat.format(reorderDate))).shouldBe(visible);
     }
 }
